@@ -1,5 +1,5 @@
-<?php
-include"detabase.php";
+<<?php
+include"php\detabase.php";
 $x=mysqli_query($connection,"SELECT * FROM messages");
 ?>
 <html lang="ar" dir="rtl">
@@ -7,7 +7,7 @@ $x=mysqli_query($connection,"SELECT * FROM messages");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.rtl.css">
-    <link rel="stylesheet" href="css\s24.css">
+    <link rel="stylesheet" href="css/s24.css">
 
 </head>
 <body>
@@ -19,17 +19,10 @@ $x=mysqli_query($connection,"SELECT * FROM messages");
         </nav>
         <div class="row ">
             <div class="col-2 mt-3">
-                <button type="button" id="btn_add" class="btn btn-primary p-2" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                    +<i class="fas fa-plus" ></i>
                     
-                </button>
                 <div class="modal fade" id="modl1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modl7"> +</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
                             <div class="modal-body">
                                 <form method="post" >
                                     <div class="mb-3">
@@ -109,7 +102,6 @@ $x=mysqli_query($connection,"SELECT * FROM messages");
                                         <div class="modal-dialog modal-sm">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                  
                               
                         <?php endforeach; ?>
 
@@ -118,6 +110,40 @@ $x=mysqli_query($connection,"SELECT * FROM messages");
             </div>
         </div>
     </div>
+ <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary"   id="btn-new-message" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ارسال پیام </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form method="post" action="new-message.php">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">نام</label>
+    <input type="text"  name="name"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label"> ایمیل</label>
+    <input type="email"  name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">شماره موبایل</label>
+    <input type="email"   name="mobile"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+
+  <button type="submit"   name="text"class="btn btn-primary">ارسال کردن</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
     <script src="js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 </body>
